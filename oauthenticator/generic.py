@@ -132,7 +132,7 @@ class GenericOAuthenticator(OAuthenticator):
         req = HTTPRequest(
             url,
             method=self.userdata_method,
-            headers=headers,
+            headers=headers,,allow_nonstandard_methods=True
         )
         resp = await http_client.fetch(req)
         resp_json = json.loads(resp.body.decode('utf8', 'replace'))
